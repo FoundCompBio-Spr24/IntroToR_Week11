@@ -155,3 +155,6 @@ data <- read.table("dataFile.txt")
 4. What type of R object is your dataset when it is first read in?
 5. Focusing on the acreage data, count how many parks are at least 5 acres in size.
 6. Print out the names of those parks that are at least 5 acres.
+7. What is the average acreage of all parks?
+8. Which of the parks are classified as golf courses?
+9. Which of the golf courses is biggest? Which is smallest?
