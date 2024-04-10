@@ -112,9 +112,66 @@ myVec[2]
 myVec[c(2,4)]
 ```
 
-### Matrices
+### Matrices (and Arrays)
 
-Matrices are expansions of vectors in two dimensions. 
+Matrices are expansions of vectors in two dimensions. All variables need to be of the same type. They can be created either by providing a vector of values and telling R how many rows and columns the matrix should have, as well as whether the values should be filled in along the rows or along the columns.
+
+```
+myMatrix <- matrix(c(1:9),nrow=3,ncol=3,byrow=FALSE)
+
+myMatrix
+
+#      [,1] [,2] [,3]
+# [1,]    1    4    7
+# [2,]    2    5    8
+# [3,]    3    6    9
+```
+
+Matrices can also be created by taking separate vectors and binding them together as either rows or columns.
+
+```
+rowOne <- c(1,4,7)
+rowTwo <- c(2,5,8)
+rowThree <- c(3,6,9)
+
+myMatrix <- rbind(rowOne,rowTwo,rowThree) # rbind() binds as rows
+```
+
+Individual values can be extracted from matrices by providing the row number and column number separated by a comma.
+
+```
+# The value in row two and column three
+myMatrix[2,3]
+```
+
+Full rows or columns can be extracted (as vectors) from matrices by providing a single index with nothing on the other side of the comma.
+
+```
+rowTwo <- myMatrix[2,]
+columnThree <- myMatrix[,3]
+
+is.vector(columnThree) # TRUE
+```
+
+Matrices are particularly useful if you need to use any mathematical operations that are specifically defined for matrices (e.g., transpose, matrix products, etc.).
+
+```
+t(myMatrix) # transpose of the matrix
+
+myMatrix %*% myMatrix
+```
+
+Arrays continue the expansion of vectors and matrices, but now for three or more dimensions.
+
+```
+myArray <- array(c(1:8),dim=c(2,2,2)) # two elements (rows, columns, etc.) in each of three dimensions
+
+myArray[,,2]
+
+#      [,1] [,2]
+# [1,]    5    7
+# [2,]    6    8
+```
 
 ## Tips and Tricks
 
