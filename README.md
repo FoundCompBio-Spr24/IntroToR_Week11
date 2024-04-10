@@ -132,3 +132,8 @@ For files with data delimited by whitespace, use `read.table`
 data <- read.table("dataFile.txt")
 ```
 
+# Practice Exercises
+
+Exercise 1 - Learning about BREC Parks
+
+
