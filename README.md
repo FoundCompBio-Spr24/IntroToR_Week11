@@ -140,3 +140,5 @@ data <- read.table("dataFile.txt")
 2. Create a new R script to analyze these data.
 3. Read the data into R.
 4. What type of R object is your dataset when it is first read in?
+5. Focusing on the acreage data, count how many parks are at least 5 acres in size.
+6. Print out the names of those parks that are at least 5 acres.
