@@ -23,17 +23,41 @@ Taken from: [The R Project for Statistical Computing](https://www.r-project.org/
 
 ## Syntax Fundamentals
 
-The standard assignment operator in R is an arrow, `<-`,
+The standard assignment operator in R is an arrow, `<-`
 
 ```
 a <- 3.0
 ```
 
-If using the RStudio IDE, variables (and their corresponding values) should appear in the upper right `Environment` panel. To display the values of variables, use the `print()` function
+If using the RStudio IDE, variables (and their corresponding values) should appear in the upper right `Environment` panel. To display the values of variables in the console, use the `print()` function
 
 ```
 print(a)
 ```
 
+To remove a variable from the `Environment`, use the `rm()` function
 
+```
+rm(a)
+```
+
+## Tips and Tricks
+
+- Tab completion
+- Scrolling through command history
+- Help
+
+## Reading data from a file
+
+For comma-delimited (`.csv`) data files, use `read.csv`
+
+```
+data <- read.csv("dataFile.csv")
+```
+
+For files with data delimited by whitespace, use `read.table`
+
+```
+data <- read.table("dataFile.txt")
+```
 
