@@ -9,6 +9,10 @@
 
 Taken from: [The R Project for Statistical Computing](https://www.r-project.org/)
 
+## R versus Python
+
+Both R and Python are flexible programming languages that can do a lot! As you work on your own research projects, you will likely find situations where one or the other is most helpful. Some of their relative strengths come from the goals behind their creation. Python is a general-purpose programming language that was designed to be more human readable and more fun than other general programming languages. R was designed by statisticians to specifically support data analysis, exploration, and visualization. Other relative strengths come from the history of their usage - in other words, how many people in different fields use those languages. Python tends to be much more widely used in genomics, for example, while R tends to be much more widely used in ecology. As such, scientists in each of those fields have developed extra packages and functionalities that are specific to those languages.
+
 ## Downloads
 
 [The R Console](https://mirror.las.iastate.edu/CRAN/)
