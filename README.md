@@ -11,6 +11,10 @@ Taken from: [The R Project for Statistical Computing](https://www.r-project.org/
 
 ## Downloads
 
-[R](https://mirror.las.iastate.edu/CRAN/)
-
+[The R Console](https://mirror.las.iastate.edu/CRAN/)
 [The RStudio Integrated Development Environment (IDE)](https://posit.co/download/rstudio-desktop/)
+
+## Additional Resources
+
+[Introduction to R Tutorial](https://cran.r-project.org/doc/manuals/R-intro.pdf)
+[Advanced R](https://adv-r.hadley.nz/)
