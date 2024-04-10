@@ -41,6 +41,77 @@ To remove a variable from the `Environment`, use the `rm()` function
 rm(a)
 ```
 
+To remove all variables in the environment at the same time, use
+
+```
+rm(list=ls())
+```
+
+When using the RStudio IDE, code can be saved in scripts. To open a new script, click the icon with the green plus in the upper left corner, then select "R Script". All the code in the script can be executed at once by clicking "Source". Specific lines of code can be executed by selecting them and then clicking "Run".
+
+Within scripts, comments can (and should!) be included by using `#`, as with Python
+
+```
+# This is a comment.
+```
+
+The fundamental data types in R are very similar to Python: numeric, integer, logical, character.
+
+```
+myNum <- 4.5
+class(myNum) # numeric
+is.numeric(myNum) # TRUE
+
+myInt <- 8L # The L specifies that the 8 is an integer
+class(myInt) # integer
+is.integer(myInt) # TRUE
+
+myLogical <- TRUE
+class(myLogical) # logical
+is.logical(myLogical) # TRUE
+
+myStr <- "exampleString"
+class(myStr) # character
+is.character(myStr) # TRUE
+```
+
+All of the standard mathematical operations are available for `numeric` variables and literal numbers
+
+```
+a + 3
+a - a
+a * 4
+12 / 4
+```
+
+## Data Structures
+
+### Vectors
+
+R has several data structures for storing sets of variables or values. For an ordered collection of values of the same type, use a vector
+
+```
+myVec <- c(1.5, 2.4, 3.4, 9.7, 6.3)
+class(myVec) # numeric
+```
+
+The `c()` function combines different values into a vector. If you try to combine values or variables of different types, R will conver them all to the most general of those types (often `character`)
+
+```
+myOtherVec <- c("a", 7.8, 3L)
+```
+
+As with lists and tuples Python, vectors in R can be subset by providing one or more indices in square brackets
+
+```
+myVec[2]
+myVec[c(2,4)]
+```
+
+### Matrices
+
+
+
 ## Tips and Tricks
 
 - Tab completion
