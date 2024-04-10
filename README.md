@@ -120,13 +120,26 @@ Matrices are expansions of vectors in two dimensions.
 
 ## Reading data from a file
 
-For comma-delimited (`.csv`) data files, use `read.csv`
+As with both bash and Python, we always need to keep track of our working directory in R, when reading from or writing to files. If you're using RStudio, you can use the Files panel in the bottom right to navigate between different directories and files. You can also see your current working directory at any time by looking at the top line of the Console panel in the bottom left. To change working directories from the command line in R, you can use `setwd()`
+
+```
+# Changing my working directory
+setwd("~/Desktop/Datasets/")
+```
+
+To read in data from comma-delimited (`.csv`) data files, use `read.csv()`. If your working directory is set to the same folder where the dataset is located, you can simply provide the name of the file.
 
 ```
 data <- read.csv("dataFile.csv")
 ```
 
-For files with data delimited by whitespace, use `read.table`
+If the dataset is located somewhere other than your current working directory, you can provide a full path to the file
+
+```
+data <- read.csv("~/Downloads/dataFile.csv")
+```
+
+For files with data delimited by whitespace, use `read.table()`
 
 ```
 data <- read.table("dataFile.txt")
@@ -136,7 +149,7 @@ data <- read.table("dataFile.txt")
 
 ## Exercise 1 - Learning about BREC Parks
 
-1. Download the BREC parks dataset, "BREC_Park_Amenities_20240409.csv", available in this repository.
+1. Download the BREC parks dataset, "BREC_Park_Amenities_20240409.csv", available in this repository. These data were originally downloaded from [Baton Rouge's Official Open Data Portal](https://data.brla.gov/)
 2. Create a new R script to analyze these data.
 3. Read the data into R.
 4. What type of R object is your dataset when it is first read in?
