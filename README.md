@@ -110,7 +110,7 @@ myVec[c(2,4)]
 
 ### Matrices
 
-
+Matrices are expansions of vectors in two dimensions. 
 
 ## Tips and Tricks
 
@@ -134,6 +134,9 @@ data <- read.table("dataFile.txt")
 
 # Practice Exercises
 
-Exercise 1 - Learning about BREC Parks
+## Exercise 1 - Learning about BREC Parks
 
-
+1. Download the BREC parks dataset, "BREC_Park_Amenities_20240409.csv", available in this repository.
+2. Create a new R script to analyze these data.
+3. Read the data into R.
+4. What type of R object is your dataset when it is first read in?
