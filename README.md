@@ -21,6 +21,8 @@ Both R and Python are flexible programming languages that can do a lot! As you w
 
 ## Additional Resources
 
+[R for Data Science](https://r4ds.hadley.nz/)
+
 [Introduction to R Tutorial](https://cran.r-project.org/doc/manuals/R-intro.pdf)
 
 [Advanced R](https://adv-r.hadley.nz/)
@@ -59,12 +61,12 @@ Within scripts, comments can (and should!) be included by using `#`, as with Pyt
 # This is a comment.
 ```
 
-The fundamental data types in R are very similar to Python: numeric, integer, logical, character.
+The fundamental data types in R are very similar to Python: double, integer, logical, character. Both doubles and integers are considered numeric variables.
 
 ```
 myNum <- 4.5
 class(myNum) # numeric
-is.numeric(myNum) # TRUE
+is.double(myNum) # TRUE
 
 myInt <- 8L # The L specifies that the 8 is an integer
 class(myInt) # integer
@@ -79,7 +81,7 @@ class(myStr) # character
 is.character(myStr) # TRUE
 ```
 
-All of the standard mathematical operations are available for `numeric` variables and literal numbers
+All of the standard mathematical operations are available for numeric variables and values
 
 ```
 a + 3
@@ -175,10 +177,60 @@ myArray[,,2]
 
 ### Lists
 
-Lists are similar to vectors, but more flexible. Importantly, they allow different data types to be stored together in one data container.
+Lists are similar to vectors, but more flexible. Importantly, they allow different data types to be stored together in one structure.
 
 ```
 myList <- list(3L,"turtle",6.7)
+
+myList
+
+# [[1]]
+# [1] 3
+
+# [[2]]
+# [1] "turtle"
+
+# [[3]]
+# [1] 6.7
+```
+
+Unlike vectors, the individual elements of a list are typically accesssed with double square brackets, `[[index]]`.
+
+```
+myList[[2]]
+
+# [1] "turtle"
+```
+
+The different elements of a list can also be named. Some ways to construct lists will automatically assign names, but they can also be assigned or changed after a list is created.
+
+```
+names(myList) <- c("theIntegers","theWords","theDoubles")
+
+myList
+
+# $theIntegers
+# [1] 3
+
+# $theWords
+# [1] "turtle"
+
+# $theDoubles
+# [1] 6.7
+```
+
+Once named, the elements of a list can be accessed (subset) using the `$` operator.
+
+```
+myList$theWords
+```
+
+Lists are particularly useful for storing heterogeneous data sets. Sometimes these consist of single values for each element in the list, but it is also common for the elements of a list to be other lists.
+
+```
+myList <- (c(3L,8L,10L,2L),
+           c("turtle","chicken","duck"),
+           rnorm(8))
 ```
 
 ## Tips and Tricks
