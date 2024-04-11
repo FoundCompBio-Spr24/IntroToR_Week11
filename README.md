@@ -173,6 +173,14 @@ myArray[,,2]
 # [2,]    6    8
 ```
 
+### Lists
+
+Lists are similar to vectors, but more flexible. Importantly, they allow different data types to be stored together in one data container.
+
+```
+myList <- list(3L,"turtle",6.7)
+```
+
 ## Tips and Tricks
 
 - Tab completion
