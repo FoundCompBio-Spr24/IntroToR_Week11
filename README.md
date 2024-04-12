@@ -233,6 +233,32 @@ myList <- (c(3L,8L,10L,2L),
            rnorm(8))
 ```
 
+## Useful Functions
+
+To generate a series of integers you can use the `:` notation
+
+```
+1:9
+```
+
+To generate any other regular series of numbers, you can use the `seq()` function.
+
+```
+seq(from=11,to=23,by=1.5)
+```
+
+To generate a set of repeating numbers, you can use the `rep()` function.
+
+```
+rep(4,times=7)
+```
+
+You can also generate more complex repeating series.
+
+```
+rep(c(4,5,9),times=4)
+```
+
 ## Tips and Tricks
 
 - Tab completion
