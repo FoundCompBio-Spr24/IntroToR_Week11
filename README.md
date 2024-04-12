@@ -233,6 +233,26 @@ myList <- (c(3L,8L,10L,2L),
            rnorm(8))
 ```
 
+### Data Frames
+
+Data frames are lists that have particular properties. Roughly speaking, a data frame is a matrix, but with different data types in each column. Importantly, each column (usually a separate vector) must be the same length.
+
+```
+myDataFrame <- data.frame(1:4,letters[1:4],rnorm(4))
+```
+
+When reading data in from files, the default data structure is often a data frame. As with lists, the individual columns of a data frame are accessed using double bracket notation.
+
+```
+myDataFrame[[2]]
+```
+
+To access an individual value in a data frame, use double brackets followed by single brackets.
+
+```
+myDataFrame[[2]][3]
+```
+
 ## Useful Functions
 
 To generate a series of integers you can use the `:` notation
