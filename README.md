@@ -337,6 +337,23 @@ plot(weight ~ Time,
      ylab="Weight")
 ```
 
+Conveniently, R has built-in functions to help us generate different sets of colors. One of those functions is called `rainbow()`. By providing the number of colors we want as an argument, we can generate a list of colors across the spectrum of the rainbow to use in our plots.
+
+```
+cols <- rainbow(n=50)
+```
+
+Here, we'll use those colors to plot lines indicating the weight trajectory of each individual chick.
+
+```
+for (i in 1:50){                          # Looping over chick ID numbers
+  if (length(weight[Chick == i]) == 12){  # Safety check for all weights
+    lines(x=c(seq(0,20,2),21),            # Manually plotting lines
+          y=weight[Chick == i],
+          col=cols[i])
+  }
+}
+```
 
 # Practice Exercises
 
