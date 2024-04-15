@@ -312,6 +312,32 @@ For files with data delimited by whitespace, use `read.table()`
 data <- read.table("dataFile.txt")
 ```
 
+## Plotting (base R)
+
+The plot function is the simplest way to generate a standard scatter plot, which is often a good starting point for datasets with multiple numeric values.
+
+```
+data("ChickWeight")  # Loading the ChickWeight dataset available with R
+attach(ChickWeight)  # Attaching the dataset, so we can use the variable names
+plot(Time,weight)    # Generating a scatter plot comparing times (days) and weights
+```
+
+In this example, we are specifing that Time should be plotted on the x-axis and weight on the y-axis. However, we can also use R's notation for formulas (`~`).
+
+```
+plot(weight ~ Time)  # weight as a function of Time
+```
+
+Plots can also be customized in lots of different ways. Here's an example where we change the appearance of the points, the color of the points, and specify a better label for the y-axis.
+
+```
+plot(weight ~ Time,
+     pch=16,
+     col=rgb(0,0,0,0.4),
+     ylab="Weight")
+```
+
+
 # Practice Exercises
 
 ## Exercise 1 - Learning about BREC Parks
