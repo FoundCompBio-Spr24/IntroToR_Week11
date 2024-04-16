@@ -314,7 +314,7 @@ data <- read.table("dataFile.txt")
 
 ## Plotting (base R)
 
-The plot function is the simplest way to generate a standard scatter plot, which is often a good starting point for datasets with multiple numeric values.
+The `plot()` function is the simplest way to generate a standard scatter plot, which is often a good starting point for datasets with multiple numeric values.
 
 ```
 data("ChickWeight")  # Loading the ChickWeight dataset available with R
