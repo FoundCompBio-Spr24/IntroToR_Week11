@@ -332,9 +332,9 @@ Plots can also be customized in lots of different ways. Here's an example where 
 
 ```
 plot(weight ~ Time,
-     pch=16,
-     col=rgb(0,0,0,0.4),
-     ylab="Weight")
+     pch=16,               # pch specifies the type of point
+     col=rgb(0,0,0,0.4),   # rgb(R,G,B,alpha) allows us to specify an RGB color (alpha is transparency)
+     ylab="Weight")        # changing the y-axis label to "Weight"
 ```
 
 Conveniently, R has built-in functions to help us generate different sets of colors. One of those functions is called `rainbow()`. By providing the number of colors we want as an argument, we can generate a list of colors across the spectrum of the rainbow to use in our plots.
@@ -347,13 +347,39 @@ Here, we'll use those colors to plot lines indicating the weight trajectory of e
 
 ```
 for (i in 1:50){                          # Looping over chick ID numbers
-  if (length(weight[Chick == i]) == 12){  # Safety check for all weights
-    lines(x=c(seq(0,20,2),21),            # Manually plotting lines
-          y=weight[Chick == i],
-          col=cols[i])
+  if (length(weight[Chick == i]) == 12){  # Safety check to make sure the chick has all 12 weight measurements
+    lines(x=c(seq(0,20,2),21),            # Manually plotting lines with days as the x coordinates...
+          y=weight[Chick == i],           # ...and weights for chick i as the y coordinates.
+          col=cols[i])                    # Each chick has a unique color, defined above with rainbow()
   }
 }
 ```
+
+We can also ask R to fit a linear model - `lm()` - to our data and then use the fitted values (slope and intercept) to plot the associated line. 
+
+```
+# Fitting and plotting an overall linear model (lm)
+wByT <- lm(weight ~ Time)
+abline(wByT, lwd=7)       # abline() uses a slope and intercept to plot the line
+```
+
+Let's also examine the fitted values from the model.
+
+```
+print(wByT)
+
+# Call:
+# lm(formula = weight ~ Time)
+
+# Coefficients:
+# (Intercept)         Time  
+#      27.467        8.803
+```
+
+On average, how many grams of weight do chicks gain per day?
+
+
+
 
 # Practice Exercises
 
