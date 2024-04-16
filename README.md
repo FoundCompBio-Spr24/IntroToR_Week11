@@ -378,8 +378,99 @@ print(wByT)
 
 On average, how many grams of weight do chicks gain per day?
 
+While scatterplots are useful, let's say that we instead want to see what the distribution of values looks like for a particular day. A box plot is useful in this case.
 
+```
+boxplot(weight[Time == 10])  # Creating a box plot of weights from day 10
+```
 
+Next, we might want to compare these distributions across all the days of our experiment. To do this, we can provide a formula to the `boxplot()` function, like we did with the `plot()` function.
+
+```
+boxplot(weight ~ Time)
+```
+
+For fun, let's make each of these box plots a different color across the rainbow spectrum. Note that the `unique()` function counts how many unique values there are for a factor (categorical variable) like Time.
+
+```
+boxplot(weight ~ Time, col=rainbow(n=length(unique(Time))))
+```
+
+To get a more precise sense for the distribution of values than we get with a box plot, we can use a histogram.
+
+```
+hist(weight[Time == 14])  # Histogram of weights from day 14
+```
+
+Here's another version of the histogram with some customized options.
+
+```
+hist(weight[Time == 14],
+     xlab = "Weights",           # x-axis label
+     main = "Day 14 Weights",    # plot title
+     breaks = 20,                # number of bins 
+     col = rgb(0,0,1,0.5))       # partially transparent blue
+```
+
+We might also want to compare distributions of weights for a particular day across diets. In that case, we can plot separate histograms for each diet. However, we'll need to manually specify the limits of the x- and y-axes to make sure the plots are comparable.
+
+```
+hist(weight[Time == 14 & Diet == 1],        # selecting only weights for day 14 and diet 1
+     xlab = "Weights",                      # x-axis label
+     main = "Day 14 Weights by Diet",       # plot title
+     xlim = c(min(weight[Time == 14])-25,   # minimum value for the x-axis (25 grams less than the minimum value for that day)
+              max(weight[Time == 14])+25),  # maximum value for the x-axis (25 grams more than the maximum value for that day)
+     ylim = c(0,6),                         # min of 0 and max of 6 for the counts on the y-axis
+     breaks = seq(from = min(weight[Time == 14])-25,  # specifying the position of breaks between 26 bins
+                  to = max(weight[Time == 14])+25,
+                  by = 25),
+     col = rgb(1,0,0,0.3))    # Partially transparent red color
+
+# par() is used for general plotting options.
+# In this case, we're telling it plot the next histogram on the same plotting region.
+
+par(new=TRUE)     
+
+hist(weight[Time == 14 & Diet == 2],     # selecting only weights for day 14 and diet 2
+     xlab = "",                          # avoiding writing multiple verisons of the labels and axes
+     ylab = "",
+     xaxt = "n",
+     yaxt = "n",
+     main = "",
+     xlim = c(min(weight[Time == 14])-25,max(weight[Time == 14])+25),
+     ylim = c(0,6),
+     breaks = seq(from = min(weight[Time == 14])-25,
+                  to = max(weight[Time == 14])+25,
+                  by = 25),
+     col = rgb(0,1,0,0.3))           # partially transparent green
+```
+
+We can also compare the distribution of weights across diets for day 14 using box plots, as we did for different days.
+
+```
+boxplot(weight[Time == 14] ~ Diet[Time == 14],
+        xlab = "Diet",
+        ylab = "Weights",
+        col = rainbow(n=4))
+```
+
+As a statistical computing platform, R also has loads of built-in statistical tests. In this case, let's test whether the mean chick weight for diet 4 is different than the mean chick weight from diet 1 using a t-test.
+
+```
+t.test(weight[Time == 14 & Diet == 1],
+       weight[Time == 14 & Diet == 4])
+
+# Welch Two Sample t-test
+
+# data:  weight[Time == 14 & Diet == 1] and weight[Time == 14 & Diet == 4]
+# t = -3.796, df = 24.805, p-value = 0.0008436
+# alternative hypothesis: true difference in means is not equal to 0
+# 95 percent confidence interval:
+#  -59.25973 -17.56249
+# sample estimates:
+# mean of x mean of y 
+#  123.3889  161.8000
+```
 
 # Practice Exercises
 
